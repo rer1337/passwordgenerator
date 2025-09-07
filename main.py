@@ -52,7 +52,7 @@ number_chars_btn.pack(pady=2.5)
 settings_frame_right = CTkFrame(window)
 settings_frame_right.grid(row=1,column=1)
 
-count_password_chars_slider = CTkSlider(settings_frame_right, from_=1, to=128, orientation='vertical', command=symbols)
+count_password_chars_slider = CTkSlider(settings_frame_right, from_=1, to=65536, orientation='vertical', command=symbols)
 count_password_chars_slider.pack(side='right')
 
 count_password_chars_label = CTkLabel(settings_frame_right,text='4',width=40)
