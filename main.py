@@ -5,10 +5,9 @@ def symbols(value):
     global symbolsamnt
     symbolsamnt = int(value)
     count_password_chars_label.configure(text=f'{int(value)}')
-    passgen()
     
 def passgen():
-    global symbolamnt
+    global symbolsamnt
     chars = [char for char in 'qwertyuiopasdfghjklzxcvbnm']
     spec_chars = [char for char in '!@#$%^&*()_+']
     avalable_value = []
@@ -21,7 +20,7 @@ def passgen():
         avalable_value += spec_chars
     if number_chars_btn.get():
         avalable_value += [str(i) for i in range(0,10)]
-    for i in range(symbolamnt):
+    for i in range(symbolsamnt):
         result += choice(avalable_value)
     passwordentry.delete('0', 'end')
     passwordentry.insert(0, result)
@@ -53,7 +52,7 @@ number_chars_btn.pack(pady=2.5)
 settings_frame_right = CTkFrame(window)
 settings_frame_right.grid(row=1,column=1)
 
-count_password_chars_slider = CTkSlider(settings_frame_right, from_=5, to=15, orientation='vertical', command=symbols)
+count_password_chars_slider = CTkSlider(settings_frame_right, from_=1, to=128, orientation='vertical', command=symbols)
 count_password_chars_slider.pack(side='right')
 
 count_password_chars_label = CTkLabel(settings_frame_right,text='4',width=40)
